@@ -4,7 +4,7 @@ local lspconfig = require "lspconfig"
 
 -- export on_attach & capabilities for custom lspconfigs
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(_, bufnr)
   loaders.load_mappings("lspconfig", { buffer = bufnr })
 end
 
@@ -37,24 +37,9 @@ require("lspconfig").lua_ls.setup {
       diagnostics = {
         globals = { "vim" },
       },
-    }
-      -- workspace = {
-      --   -- Make the server aware of Neovim runtime files
-      --   library = vim.api.nvim_get_runtime_file("", true), 
-      -- },
-      -- workspace = {
-      --   library = {
-      --     [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-      --     [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-      --     [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
-      --   },
-      --   maxPreload = 100000,
-      --   preloadFileSize = 10000,
-      -- },
-    -- },
+    },
   },
 }
-
 
 -- setup multiple servers with same default options
 local servers = { "html", "cssls", "tsserver", "clangd", "eslint" }
@@ -66,8 +51,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-vim.diagnostic.config({
-  virtual_text = false
-})
+vim.diagnostic.config {
+  virtual_text = false,
+}
 
 return M

@@ -26,47 +26,6 @@ local plugins = {
     end,
   },
 
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   branch = "v3.x",
-  --   cmd = "Neotree",
-  --   deactivate = function()
-  --     vim.cmd([[Neotree close]])
-  --   end,
-  --   init = function()
-  --     if vim.fn.argc(-1) == 1 then
-  --       local stat = vim.loop.fs_stat(vim.fn.argv(0))
-  --       if stat and stat.type == "directory" then
-  --         require("neo-tree")
-  --       end
-  --     end
-  --   end,
-  --   opts = function()
-  --     return require "plugins.configs.neotree"
-  --   end,
-  --   config = function(_, opts)
-  --     local function on_move(data)
-  --       Util.lsp.on_rename(data.source, data.destination)
-  --     end
-
-  --     local events = require("neo-tree.events")
-  --     opts.event_handlers = opts.event_handlers or {}
-  --     vim.list_extend(opts.event_handlers, {
-  --       { event = events.FILE_MOVED, handler = on_move },
-  --       { event = events.FILE_RENAMED, handler = on_move },
-  --     })
-  --     require("neo-tree").setup(opts)
-  --     -- vim.api.nvim_create_autocmd("TermClose", {
-  --     --   pattern = "*lazygit",
-  --     --   callback = function()
-  --     --     if package.loaded["neo-tree.sources.git_status"] then
-  --     --       require("neo-tree.sources.git_status").refresh()
-  --     --     end
-  --     --   end,
-  --     -- })
-  --   end,
-  -- },
-
   -- search/replace in multiple files
   -- {
   --   "nvim-pack/nvim-spectre",
@@ -90,26 +49,6 @@ local plugins = {
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
-
-  -- {
-  --   "romgrk/barbar.nvim",
-  --   event = "VeryLazy",
-  --   version = "^1.0.0", -- optional: only update when a new 1.x version is released
-  --   dependencies = {
-  --     "lewis6991/gitsigns.nvim", 
-  --     "nvim-tree/nvim-web-devicons", 
-  --   },
-  --   init = function()
-  --     vim.g.barbar_auto_setup = false
-  --     require("utils.loaders").load_mappings("barbar")
-  --   end,
-  --   opts = function()
-  --     return require "plugins.configs.barbar"
-  --   end,
-  --   config = function(_, opts) 
-  --     require("barbar").setup(opts)
-  --   end
-  -- },
 
   {
     "akinsho/bufferline.nvim",
