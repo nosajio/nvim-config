@@ -73,8 +73,18 @@ M.conform = {
       end,
       "Format document",
     },
-  }
+  },
 }
+
+-- M.barbar = {
+--   plugin = true,
+
+--   n = {
+--     ["<leader>x"] = { "<cmd>BufferClose<CR>", "Close Buff", opts = { silent = true, noremap = true } },
+--     ["<tab>"] = { "<Cmd>BufferNext<CR>", "Next Buff/Tab", opts = { silent = true } },
+--     ["<S-tab>"] = { "<Cmd>BufferPrevious<CR>", "Prev Buff/Tab", opts = { silent = true } },
+--   },
+-- }
 
 M.bufferline = {
   plugin = true,
@@ -82,11 +92,23 @@ M.bufferline = {
   n = {
     ["<leader>x"] = {
       function()
-        require("bufferline")
+        vim.api.nvim_buf_delete(0, { force = true })
       end,
-      "Close buffer"
-    }
-  }
+      "Close buffer",
+    },
+    ["<tab>"] = {
+      function()
+        require("bufferline").cycle(1)
+      end,
+      "Next buffer",
+    },
+    ["<S-tab>"] = {
+      function()
+        require("bufferline").cycle(-1)
+      end,
+      "Prev buffer",
+    },
+  },
 }
 
 M.trouble = {
@@ -123,9 +145,8 @@ M.trouble = {
       end,
       "Trouble LSP refs",
     },
-  }
+  },
 }
-
 
 -- M.tabufline = {
 --   plugin = true,
@@ -560,4 +581,3 @@ M.gitsigns = {
 }
 
 return M
-

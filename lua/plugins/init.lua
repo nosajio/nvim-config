@@ -91,10 +91,30 @@ local plugins = {
     end,
   },
 
+  -- {
+  --   "romgrk/barbar.nvim",
+  --   event = "VeryLazy",
+  --   version = "^1.0.0", -- optional: only update when a new 1.x version is released
+  --   dependencies = {
+  --     "lewis6991/gitsigns.nvim", 
+  --     "nvim-tree/nvim-web-devicons", 
+  --   },
+  --   init = function()
+  --     vim.g.barbar_auto_setup = false
+  --     require("utils.loaders").load_mappings("barbar")
+  --   end,
+  --   opts = function()
+  --     return require "plugins.configs.barbar"
+  --   end,
+  --   config = function(_, opts) 
+  --     require("barbar").setup(opts)
+  --   end
+  -- },
+
   {
     "akinsho/bufferline.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
-    event = "VeryLazy",
+    event = "BufReadPre",
     init = function()
       require("utils.loaders").load_mappings "bufferline"
     end,
@@ -105,8 +125,8 @@ local plugins = {
       require("bufferline").setup(opts)
     end,
   },
-
-  -- buffer + tab line
+  
+  -- -- buffer + tab line
   -- {
   --   "akinsho/bufferline.nvim",
   --   event = "BufReadPre",
