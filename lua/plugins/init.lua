@@ -103,7 +103,7 @@ local plugins = {
     --   end
     -- end,
     opts = function()
-      return require "plugins.configs.lualine_evil"
+      return require "plugins.configs.lualine"
     end,
     config = function(_, opts)
       require("lualine").setup(opts)
