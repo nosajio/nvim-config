@@ -78,7 +78,7 @@ local plugins = {
       require("bufferline").setup(opts)
     end,
   },
-  
+
   -- -- buffer + tab line
   -- {
   --   "akinsho/bufferline.nvim",
@@ -344,6 +344,11 @@ local plugins = {
     -- config = function()
     --   require("sequoia").colorscheme();
     -- end
+  },
+
+  {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
   },
 
   -- {

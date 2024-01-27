@@ -37,3 +37,4 @@ loaders.load_mappings()
 -- end)
 
 vim.cmd "colorscheme sequoia"
+-- vim.cmd "colorscheme kanagawa"

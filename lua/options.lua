@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.o.termguicolors = true
+
 vim.g.mapleader = " "
 
 opt.laststatus = 3 -- global statusline
