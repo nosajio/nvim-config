@@ -3,6 +3,20 @@ local plugins = {
 
   -- { "MunifTanjim/nui.nvim", lazy = true },
 
+  -- FTerm
+  {
+    "numToStr/FTerm.nvim",
+    init = function()
+      require("utils.loaders").load_mappings "fterm"
+    end,
+    opts = function()
+      return require "plugins.configs.fterm"
+    end,
+    config = function(_, opts)
+      require("FTerm").setup(opts)
+    end,
+  },
+
   -- file tree
   {
     "nvim-tree/nvim-tree.lua",

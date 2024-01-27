@@ -580,4 +580,24 @@ M.gitsigns = {
   },
 }
 
+M.fterm = {
+  n = {
+    ["<A-i>"] = {
+      function() 
+        require("FTerm").toggle()
+      end,
+      "Floating shell"
+    }
+  },
+
+  t = {
+    ["<A-i>"] = {
+      function() 
+        require("FTerm").toggle()
+      end,
+      "Floating shell"
+    }
+  }
+}
+
 return M
