@@ -1,6 +1,7 @@
 local options = {
   filters = {
     dotfiles = false,
+    custom = { ".DS_Store" },
     -- exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
   },
   disable_netrw = true,
